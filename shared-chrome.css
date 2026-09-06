@@ -1,0 +1,193 @@
+/*
+  Shared chrome locked from the approved source components:
+  - Navbar / hamburger = Projects page
+  - Footer + green/brick bars = Home page
+  Loaded last so page-specific CSS cannot change their dimensions/layout.
+*/
+
+/* ===== EXACT PROJECTS NAVBAR / HAMBURGER ===== */
+.project-nav-exact.site-header{
+  position:sticky;top:0;z-index:50;
+  border-bottom:4px solid var(--dark);
+  background:var(--header)
+}
+.project-nav-exact .container{width:min(100% - 2rem,80rem);margin-inline:auto}
+.project-nav-exact .nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  min-height:0;padding-top:.75rem;padding-bottom:.75rem
+}
+.project-nav-exact .brand{
+  background:var(--red);padding:.5rem .75rem;color:#fff;
+  font-family:"Press Start 2P",cursive;font-size:.75rem;
+  border-width:2px;box-shadow:3px 3px 0 var(--shadow)
+}
+.project-nav-exact .desktop-nav{display:none;align-items:center;gap:.25rem}
+.project-nav-exact .nav-link{
+  padding:.5rem 1rem;font-family:"Press Start 2P",cursive;
+  font-size:.75rem
+}
+.project-nav-exact .nav-link:hover,.project-nav-exact .nav-link.active{color:var(--red)}
+.project-nav-exact .nav-actions{display:none;align-items:center;gap:.75rem}
+.project-nav-exact .hud{display:flex;gap:.5rem;font-family:"Press Start 2P",cursive;font-size:.75rem}
+.project-nav-exact .hud span{display:flex;align-items:center;gap:.25rem}
+.project-nav-exact .icon-nav{width:1rem;height:1rem}
+.project-nav-exact .icon-btn{
+  width:2.25rem;height:2.25rem;display:flex;align-items:center;justify-content:center;
+  background:var(--header);color:var(--foreground);border-radius:0
+}
+.project-nav-exact .book-btn{
+  background:var(--green);padding:.5rem 1rem;color:#fff;
+  font-family:"Press Start 2P",cursive;font-size:.75rem
+}
+.project-nav-exact .mobile-menu-btn{
+  width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;
+  background:var(--header);color:var(--foreground);
+  border-width:2px;box-shadow:3px 3px 0 var(--shadow)
+}
+.project-nav-exact .mobile-menu-btn .icon{width:1.5rem;height:1.5rem}
+.project-nav-exact .mobile-menu-btn .close-icon{display:none}
+.project-nav-exact .mobile-menu-btn.open .menu-icon{display:none}
+.project-nav-exact .mobile-menu-btn.open .close-icon{display:block}
+.project-nav-exact + .mobile-panel,
+.project-nav-exact .mobile-panel{ /* defensive; panel normally lives inside header */ }
+.project-nav-exact .mobile-panel{
+  display:grid;grid-template-rows:0fr;opacity:0;overflow:hidden;
+  background:var(--header);border-top:0 solid var(--dark);
+  transition:grid-template-rows .25s ease,opacity .25s ease,border-width .25s
+}
+.project-nav-exact .mobile-panel.open{grid-template-rows:1fr;opacity:1;border-top-width:4px}
+.project-nav-exact .mobile-nav{
+  min-height:0;overflow:hidden;display:flex;flex-direction:column;
+  gap:.5rem;padding:0 1rem;transition:padding .25s
+}
+.project-nav-exact .mobile-panel.open .mobile-nav{padding:1rem}
+.project-nav-exact .mobile-link{
+  padding:.5rem;font-family:"Press Start 2P",cursive;font-size:.75rem
+}
+.project-nav-exact .mobile-link.active{color:var(--red)}
+.project-nav-exact .mobile-book{
+  margin-top:.5rem;padding:.75rem 1rem;background:var(--green);color:#fff;
+  text-align:center;font-family:"Press Start 2P",cursive;font-size:.75rem
+}
+
+@media (min-width:768px){
+  .project-nav-exact .container{width:min(100% - 3rem,80rem)}
+  .project-nav-exact .brand{font-size:.875rem}
+  .project-nav-exact .desktop-nav,.project-nav-exact .nav-actions{display:flex}
+  .project-nav-exact .mobile-menu-btn,.project-nav-exact .mobile-panel{display:none}
+}
+
+/* ===== EXACT HOME FOOTER, INCLUDING GREEN + BRICK BAR ===== */
+.exact-footer .container{width:min(calc(100% - 32px),1024px);margin-inline:auto}
+.exact-footer .ground-strip{height:13px;border-top:3px solid var(--dark)}
+.exact-footer .footer-bricks{
+  height:31px;border-bottom:3px solid var(--dark);
+  background-size:32px 32px;
+  background-position:0 0,16px 0,16px -16px,0 16px
+}
+.exact-footer .footer-main{padding:48px 0 18px;border-bottom:3px solid var(--dark)}
+.exact-footer .footer-columns{
+  display:grid;grid-template-columns:1.15fr .8fr 1fr;
+  gap:72px;align-items:start
+}
+.exact-footer .footer-columns h3{margin:0;color:var(--foreground)}
+.exact-footer .footer-title{font-size:10px}
+.exact-footer .footer-label{font-size:8px}
+.exact-footer .footer-columns p,
+.exact-footer .footer-map,
+.exact-footer .footer-email{
+  font-size:9px;line-height:1.7;color:var(--muted)
+}
+.exact-footer .footer-columns p{margin:14px 0 0}
+.exact-footer .location-line{display:flex;align-items:center;gap:8px}
+.exact-footer .location-line .pixel{font-size:7px;color:var(--foreground)}
+.exact-footer .footer-map{display:flex;flex-direction:column;gap:7px;margin-top:15px}
+.exact-footer .footer-map a:hover{color:var(--red)}
+.exact-footer .footer-email{display:inline-block;margin-top:14px}
+.exact-footer .social-buttons{display:flex;gap:12px;margin-top:15px}
+.exact-footer .social-buttons a{background:#fff;padding:7px 10px;font-size:7px}
+.exact-footer .footer-bottom{
+  border-top:1px solid rgba(26,26,26,.18);
+  margin-top:40px;padding-top:17px;text-align:center;
+  font-size:6px;color:var(--muted)
+}
+
+@media (min-width:768px) and (max-width:1100px){
+  .exact-footer .footer-columns{gap:38px}
+}
+
+@media (max-width:767px){
+  .exact-footer .container{width:calc(100% - 32px);max-width:none}
+  .exact-footer .ground-strip{height:16px;border-top:4px solid var(--dark)}
+  .exact-footer .footer-bricks{
+    height:38px;border-bottom:4px solid var(--dark);
+    background-size:36px 36px;
+    background-position:0 0,18px 0,18px -18px,0 18px
+  }
+  .exact-footer .footer-main{
+    padding:49px 0 19px;border-bottom:4px solid var(--dark);
+    background-color:#fff;
+    background-image:
+      linear-gradient(45deg,#f1f1f1 25%,transparent 25%),
+      linear-gradient(-45deg,#f1f1f1 25%,transparent 25%),
+      linear-gradient(45deg,transparent 75%,#f1f1f1 75%),
+      linear-gradient(-45deg,transparent 75%,#f1f1f1 75%);
+    background-size:24px 24px;
+    background-position:0 0,0 12px,12px -12px,-12px 0
+  }
+  .exact-footer .footer-columns{grid-template-columns:1fr;gap:48px}
+  .exact-footer .footer-title{font-size:11px;line-height:1.4}
+  .exact-footer .footer-label{font-size:9px;line-height:1.4}
+  .exact-footer .footer-columns p{
+    margin-top:22px;font-size:clamp(11.5px,3.3vw,12.5px);
+    line-height:1.8;color:#51515e
+  }
+  .exact-footer .location-line{margin-top:21px!important;gap:11px}
+  .exact-footer .location-line .status-dot{
+    width:12px;height:17px;border-width:3px
+  }
+  .exact-footer .location-line .pixel{font-size:8px;line-height:1.6;color:var(--foreground)}
+  .exact-footer .footer-map{
+    gap:18px;margin-top:22px;font-size:clamp(11.5px,3.3vw,12.5px);
+    line-height:1.45;color:var(--foreground)
+  }
+  .exact-footer .footer-email{
+    margin-top:22px;font-size:clamp(11.5px,3.3vw,12.5px);
+    line-height:1.5;color:var(--foreground)
+  }
+  .exact-footer .social-buttons{gap:14px;margin-top:24px}
+  .exact-footer .social-buttons a{
+    padding:10px 13px;font-size:8px;border-width:3px;box-shadow:4px 4px 0 var(--shadow)
+  }
+  .exact-footer .footer-bottom{
+    margin-top:47px;padding:22px 0 4px;border-top:4px solid var(--dark);
+    font-size:7px;line-height:1.85;color:#5a5a68
+  }
+}
+
+@media (max-width:360px){
+  .exact-footer .container{width:calc(100% - 28px)}
+}
+
+/* Yellow location coin: fast full 3D flip matching the supplied reference video. */
+@keyframes footer-location-coin-flip{
+  0%{transform:perspective(80px) rotateY(0deg) scaleX(1)}
+  25%{transform:perspective(80px) rotateY(90deg) scaleX(.02)}
+  50%{transform:perspective(80px) rotateY(180deg) scaleX(1)}
+  75%{transform:perspective(80px) rotateY(270deg) scaleX(.02)}
+  100%{transform:perspective(80px) rotateY(360deg) scaleX(1)}
+}
+.exact-footer .location-line .status-dot{
+  display:inline-block;
+  flex:0 0 auto;
+  width:12px;
+  height:12px;
+  border:3px solid var(--dark);
+  border-radius:50%;
+  background:var(--gold);
+  transform-origin:50% 50%;
+  transform-style:preserve-3d;
+  backface-visibility:visible;
+  will-change:transform;
+  animation:footer-location-coin-flip 1.6s linear infinite;
+}
